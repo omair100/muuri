@@ -5433,8 +5433,8 @@
 
     // Throw an error if the container element is not body element or does not
     // exist within the body element.
-    var isElementInDom = element.getRootNode
-      ? element.getRootNode({ composed: true }) === document
+    var isElementInDom = element.ownerDocument
+      ? element.ownerDocument === document
       : window.document.body.contains(element);
     if (!isElementInDom || element === window.document.documentElement) {
       throw new Error('Container element must be an existing DOM element');
